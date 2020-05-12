@@ -14,6 +14,13 @@ import XCTest
 
 class CategoriesTests: XCTestCase {
 
+    private var dateFormatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.timeZone = .current
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        return formatter
+    }()
+    
     override func tearDown() {
         HTTPStubs.removeAllStubs()
         super.tearDown()
@@ -71,6 +78,28 @@ class CategoriesTests: XCTestCase {
         
         let categories = try result.get()
         XCTAssertEqual(categories.count, 2)
+        
+        let firstCategoryOrNil = categories.first
+        
+        guard let firstCategory = firstCategoryOrNil else {
+            XCTAssertNotNil(firstCategoryOrNil)
+            return
+        }
+        
+        XCTAssertEqual(firstCategory.id, "59839fd7951cf747207bed3e")
+        let creationDate = dateFormatter.date(from: "2017-08-03T22:12:39.537Z")
+        XCTAssertNotNil(firstCategory.creationDate)
+        XCTAssertEqual(firstCategory.creationDate, creationDate)
+        XCTAssertEqual(firstCategory.categoryType, CategoryType.restaurants)
+        XCTAssertEqual(firstCategory.moduleEID, UUID(uuidString: "aad16857-166d-43d4-8f16-d097902838cf"))
+        XCTAssertEqual(firstCategory.endPointId, UUID(uuidString: "ac5bd194-11de-48f6-94db-fd16cfccb570"))
+        XCTAssertEqual(firstCategory.title, "Restaurants")
+        XCTAssertNotNil(firstCategory.description)
+        XCTAssertEqual(firstCategory.description, "Find local restaurants")
+        XCTAssertTrue(firstCategory.isActive)
+        let updatedDate = dateFormatter.date(from: "2017-08-03T22:12:39.544Z")
+        XCTAssertNotNil(firstCategory.lastUpdatedDate)
+        XCTAssertEqual(firstCategory.lastUpdatedDate, updatedDate)
     }
     
     func testGetCategories_whenReceivingHttp400() throws {

@@ -22,6 +22,7 @@
 		E8E6D6B6246AD605001BD4F4 /* NetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828710B2468E68F006EC3CC /* NetworkServiceError.swift */; };
 		E8E6D6B8246AEEA6001BD4F4 /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6B7246AEEA6001BD4F4 /* RestaurantService.swift */; };
 		E8E6D6BA246AEFE9001BD4F4 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6B9246AEFE9001BD4F4 /* RestaurantModel.swift */; };
+		E8E6D6BC246B1031001BD4F4 /* RestaurantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6BB246B1031001BD4F4 /* RestaurantsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServices.swift; sourceTree = "<group>"; };
 		E8E6D6B7246AEEA6001BD4F4 /* RestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantService.swift; sourceTree = "<group>"; };
 		E8E6D6B9246AEFE9001BD4F4 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
+		E8E6D6BB246B1031001BD4F4 /* RestaurantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTests.swift; sourceTree = "<group>"; };
 		F35BBB14E53841B3E31A2068 /* Pods_Mobile_TestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_TestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50F676A8FF5907715151592 /* Pods-Mobile Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Test.debug.xcconfig"; path = "Target Support Files/Pods-Mobile Test/Pods-Mobile Test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				E82870FC2468D3A3006EC3CC /* CategoriesTests.swift */,
+				E8E6D6BB246B1031001BD4F4 /* RestaurantsTests.swift */,
 				E82870FB2468D3A2006EC3CC /* Mobile TestTests-Bridging-Header.h */,
 			);
 			path = Categories;
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8E6D6BC246B1031001BD4F4 /* RestaurantsTests.swift in Sources */,
 				E82870FD2468D3A3006EC3CC /* CategoriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

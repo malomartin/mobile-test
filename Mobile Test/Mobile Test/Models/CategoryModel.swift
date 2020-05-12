@@ -38,6 +38,13 @@ struct Category: Decodable {
     /// Not used.
     let creationDate: Date?
     
+    private var dateFormatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.timeZone = .current
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        return formatter
+    }()
+    
     // MARK: Decodable
     
     /// We need to implement the init since there is no automatic parsing available from `String` to `Date`.
@@ -54,10 +61,10 @@ struct Category: Decodable {
         
         // Perticular management of date parsing.
         let lastUpdatedString = try values.decode(String.self, forKey: .lastUpdatedDate)
-        lastUpdatedDate = ISO8601DateFormatter().date(from: lastUpdatedString)
+        lastUpdatedDate = dateFormatter.date(from: lastUpdatedString)
         
         let creationDateString = try values.decode(String.self, forKey: .creationDate)
-        creationDate = ISO8601DateFormatter().date(from: creationDateString)
+        creationDate = dateFormatter.date(from: creationDateString)
     }
     
     enum CodingKeys: String, CodingKey {

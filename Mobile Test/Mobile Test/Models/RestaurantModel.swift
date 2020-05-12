@@ -27,7 +27,7 @@ struct Restaurant: Decodable {
     let photoUrl: URL?
     
     /// Information regarding the address of the restaurant.
-    let address: Address
+    let addresses: [Address]
     
     /// Contact information.
     let contactInfo: ContactInfo
@@ -38,6 +38,51 @@ struct Restaurant: Decodable {
     let isActive: Bool
     let lastUpdatedDate: Date?
     let creationDate: Date?
+    
+    private var dateFormatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.timeZone = .current
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        return formatter
+    }()
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case title
+        case description
+        case restaurantType = "slug"
+        case photoUrl = "photo"
+        case isActive = "_active"
+        case categoryEID = "category_eid"
+        case endPointId = "eid"
+        case lastUpdatedDate = "updated_at"
+        case creationDate = "created_at"
+        case addresses
+        case contactInfo
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try values.decode(String.self, forKey: .id)
+        self.title = try values.decode(String.self, forKey: .title)
+        self.description = try values.decodeIfPresent(String.self, forKey: .description)
+        self.restaurantType = try values.decode(String.self, forKey: .restaurantType)
+        let photoString = try values.decodeIfPresent(String.self, forKey: .photoUrl) ?? ""
+        self.photoUrl = URL(string: photoString)
+        self.addresses = try values.decode([Address].self, forKey: .addresses)
+        self.contactInfo = try values.decode(ContactInfo.self, forKey: .contactInfo)
+        self.categoryEID = try values.decode(UUID.self, forKey: .categoryEID)
+        self.endPointId = try values.decode(UUID.self, forKey: .endPointId)
+        self.isActive = try values.decode(Bool.self, forKey: .isActive)
+        
+        // Perticular management of date parsing.
+        let lastUpdatedString = try values.decode(String.self, forKey: .lastUpdatedDate)
+        lastUpdatedDate = dateFormatter.date(from: lastUpdatedString)
+        
+        let creationDateString = try values.decode(String.self, forKey: .creationDate)
+        creationDate = dateFormatter.date(from: creationDateString)
+    }
 }
 
 // MARK: - Address
@@ -92,4 +137,10 @@ struct ContactInfo: Decodable {
     let websites: [URL]
     let emails: [String]
     let phones: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case websites = "website"
+        case emails = "email"
+        case phones = "phoneNumber"
+    }
 }
