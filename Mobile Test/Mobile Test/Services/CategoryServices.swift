@@ -20,31 +20,7 @@ final class CategoryServices {
         let url = Configuration.servicseBaseUrl.appendingPathComponent("categories")
         let request = URLRequest(url: url)
         networkService.getResourcesOfType([Category].self, request: request) { result in
-            print(result)
             completionHandler(result)
         }
     }
 }
-
-
-//    func getCategories(completionHandler: @escaping CompletionHandler) throws {
-//
-//        let url = Configuration.servicseBaseUrl.appendingPathComponent("categories")
-//        let request = URLRequest(url: url)
-//
-//        pendingHandlers.append(completionHandler)
-//
-//        // pendingHandler.count > 1 means that the resource is already being fetched.
-//        guard pendingHandlers.count == 1 else { return }
-//
-//        queue.async { [weak self] in
-//            self?.session.dataTask(with: request) { (dataOrNil, responseOrNil, errorOrNil) in
-//
-//
-//
-//                // Parse data into resource object.
-//                let result = Result { try JSONDecoder().decode([Category].self, from: data) }
-//                self?.handleResult(result.map { $0 as [Resource] })
-//            }
-//        }
-//    }
