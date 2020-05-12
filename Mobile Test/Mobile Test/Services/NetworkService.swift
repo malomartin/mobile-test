@@ -55,6 +55,7 @@ final class NetworkService<T: Decodable> {
             return .failure(NetworkServiceError.invalidResponseType)
         }
         
+        // Only proceed to parsing if http satus is between 200 and 399.
         guard 200 ..< 400 ~= response.statusCode else {
             
             switch response.statusCode {

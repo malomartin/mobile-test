@@ -73,6 +73,11 @@ struct Category: Decodable {
     }
 }
 
-// MARK: - Resource
+// MARK: - CategoryType
 
-extension Category: Resource {}
+/// Represents a category that can be selected.
+enum CategoryType: String, Decodable {
+    case restaurants = "restaurants"
+    case vacationSpots = "vacation-spots"
+}
+

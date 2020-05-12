@@ -65,11 +65,50 @@ class CategoriesTests: XCTestCase {
         waitForExpectations(timeout: 2.0)
         
         guard let result = resultOrNil else {
-            XCTAssert(false, "Result must not be nil")
+            XCTAssertNotNil(resultOrNil)
             return
         }
         
         let categories = try result.get()
         XCTAssertEqual(categories.count, 2)
+    }
+    
+    func testGetCategories_whenReceivingHttp400() throws {
+        let xpectation = expectation(description: "getCategories - failure - 400")
+        stub(condition: isScheme("https") && isHost("mobile-test.getsandbox.com") && isPath("/categories"), response: { _ in
+            return HTTPStubsResponse(data: Data(), statusCode: 400, headers: nil)
+        })
+        
+        var resultOrNil: Result<[Mobile_Test.Category], Error>? = nil
+        let categoryService = CategoryServices()
+        categoryService.getCategories { result in
+            resultOrNil = result
+            xpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 2.0)
+        
+        guard let result = resultOrNil else {
+            XCTAssertNotNil(resultOrNil)
+            return
+        }
+        
+        switch result {
+        case .success(_):
+            XCTAssert(false, "An error should have been raised")
+            
+        case .failure(let error as NetworkServiceError):
+            
+            switch error {
+            case .client(let status):
+                XCTAssertEqual(status, 400)
+                
+            default:
+                XCTAssert(false, "The error raised should be a client error.")
+            }
+        
+        case .failure(_):
+            XCTAssert(false, "Error received should be of type NetworkServiceError.client")
+        }
     }
 }

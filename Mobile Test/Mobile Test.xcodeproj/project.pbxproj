@@ -16,12 +16,12 @@
 		E82870E22468D12C006EC3CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82870E02468D12C006EC3CC /* LaunchScreen.storyboard */; };
 		E82870FD2468D3A3006EC3CC /* CategoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82870FC2468D3A3006EC3CC /* CategoriesTests.swift */; };
 		E82871012468D85E006EC3CC /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871002468D85E006EC3CC /* CategoryModel.swift */; };
-		E82871042468D927006EC3CC /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871032468D927006EC3CC /* CategoryType.swift */; };
 		E82871072468E38A006EC3CC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871062468E38A006EC3CC /* NetworkService.swift */; };
-		E828710A2468E4B8006EC3CC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871092468E4B8006EC3CC /* Resource.swift */; };
 		E828710E2468E9BE006EC3CC /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828710D2468E9BE006EC3CC /* Configurations.swift */; };
 		E8E6D6B5246A47D5001BD4F4 /* CategoryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */; };
 		E8E6D6B6246AD605001BD4F4 /* NetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828710B2468E68F006EC3CC /* NetworkServiceError.swift */; };
+		E8E6D6B8246AEEA6001BD4F4 /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6B7246AEEA6001BD4F4 /* RestaurantService.swift */; };
+		E8E6D6BA246AEFE9001BD4F4 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6B9246AEFE9001BD4F4 /* RestaurantModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +51,12 @@
 		E82870FB2468D3A2006EC3CC /* Mobile TestTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobile TestTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		E82870FC2468D3A3006EC3CC /* CategoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTests.swift; sourceTree = "<group>"; };
 		E82871002468D85E006EC3CC /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
-		E82871032468D927006EC3CC /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
 		E82871062468E38A006EC3CC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		E82871092468E4B8006EC3CC /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		E828710B2468E68F006EC3CC /* NetworkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceError.swift; sourceTree = "<group>"; };
 		E828710D2468E9BE006EC3CC /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServices.swift; sourceTree = "<group>"; };
+		E8E6D6B7246AEEA6001BD4F4 /* RestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantService.swift; sourceTree = "<group>"; };
+		E8E6D6B9246AEFE9001BD4F4 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		F35BBB14E53841B3E31A2068 /* Pods_Mobile_TestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_TestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50F676A8FF5907715151592 /* Pods-Mobile Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Test.debug.xcconfig"; path = "Target Support Files/Pods-Mobile Test/Pods-Mobile Test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,7 +119,6 @@
 				E82870DB2468D128006EC3CC /* Main.storyboard */,
 				E82871082468E4A0006EC3CC /* Services */,
 				E82871052468DC21006EC3CC /* Models */,
-				E82870F92468D23F006EC3CC /* Categories */,
 				E82870F72468D18B006EC3CC /* Assets */,
 				E82870F82468D19A006EC3CC /* Supporting files */,
 			);
@@ -154,13 +153,6 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
-		E82870F92468D23F006EC3CC /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
 		E82870FA2468D2B2006EC3CC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,8 +179,8 @@
 		E82871052468DC21006EC3CC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E82871032468D927006EC3CC /* CategoryType.swift */,
 				E82871002468D85E006EC3CC /* CategoryModel.swift */,
+				E8E6D6B9246AEFE9001BD4F4 /* RestaurantModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,8 +190,8 @@
 			children = (
 				E828710B2468E68F006EC3CC /* NetworkServiceError.swift */,
 				E82871062468E38A006EC3CC /* NetworkService.swift */,
-				E82871092468E4B8006EC3CC /* Resource.swift */,
 				E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */,
+				E8E6D6B7246AEEA6001BD4F4 /* RestaurantService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -384,14 +376,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E82871042468D927006EC3CC /* CategoryType.swift in Sources */,
 				E8E6D6B6246AD605001BD4F4 /* NetworkServiceError.swift in Sources */,
 				E82871072468E38A006EC3CC /* NetworkService.swift in Sources */,
 				E828710E2468E9BE006EC3CC /* Configurations.swift in Sources */,
+				E8E6D6BA246AEFE9001BD4F4 /* RestaurantModel.swift in Sources */,
 				E82870D62468D128006EC3CC /* AppDelegate.swift in Sources */,
 				E8E6D6B5246A47D5001BD4F4 /* CategoryServices.swift in Sources */,
-				E828710A2468E4B8006EC3CC /* Resource.swift in Sources */,
 				E82871012468D85E006EC3CC /* CategoryModel.swift in Sources */,
+				E8E6D6B8246AEEA6001BD4F4 /* RestaurantService.swift in Sources */,
 				E82870D82468D128006EC3CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
