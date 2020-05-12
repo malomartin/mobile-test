@@ -9,5 +9,4 @@
 import Foundation
 
 /// Conformants to this protocol are data objects returned by a web service.
-protocol Resource: Decodable {}
-
+protocol Resource {}

@@ -15,7 +15,7 @@ struct Category: Decodable {
     let id: String
     
     /// Last time the category has been updated.
-    let lastUpdatedDate: Date
+    let lastUpdatedDate: Date?
     
     /// Type of the category.
     let categoryType: CategoryType
@@ -30,15 +30,35 @@ struct Category: Decodable {
     let title: String
     
     /// Human readable description of the category.
-    let description: String
+    let description: String?
     
     /// Not used.
     let isActive: Bool
     
     /// Not used.
-    let creationDate: Date
+    let creationDate: Date?
     
     // MARK: Decodable
+    
+    /// We need to implement the init since there is no automatic parsing available from `String` to `Date`.
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try values.decode(String.self, forKey: .id)
+        self.categoryType = try values.decode(CategoryType.self, forKey: .categoryType)
+        self.moduleEID = try values.decode(UUID.self, forKey: .moduleEID)
+        self.endPointId = try values.decode(UUID.self, forKey: .endPointId)
+        self.title = try values.decode(String.self, forKey: .title)
+        self.description = try values.decodeIfPresent(String.self, forKey: .description)
+        self.isActive = try values.decode(Bool.self, forKey: .isActive)
+        
+        // Perticular management of date parsing.
+        let lastUpdatedString = try values.decode(String.self, forKey: .lastUpdatedDate)
+        lastUpdatedDate = ISO8601DateFormatter().date(from: lastUpdatedString)
+        
+        let creationDateString = try values.decode(String.self, forKey: .creationDate)
+        creationDate = ISO8601DateFormatter().date(from: creationDateString)
+    }
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"

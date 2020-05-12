@@ -17,10 +17,11 @@
 		E82870FD2468D3A3006EC3CC /* CategoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82870FC2468D3A3006EC3CC /* CategoriesTests.swift */; };
 		E82871012468D85E006EC3CC /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871002468D85E006EC3CC /* CategoryModel.swift */; };
 		E82871042468D927006EC3CC /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871032468D927006EC3CC /* CategoryType.swift */; };
-		E82871072468E38A006EC3CC /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871062468E38A006EC3CC /* WebServices.swift */; };
+		E82871072468E38A006EC3CC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871062468E38A006EC3CC /* NetworkService.swift */; };
 		E828710A2468E4B8006EC3CC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871092468E4B8006EC3CC /* Resource.swift */; };
-		E828710C2468E68F006EC3CC /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828710B2468E68F006EC3CC /* ServiceError.swift */; };
 		E828710E2468E9BE006EC3CC /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828710D2468E9BE006EC3CC /* Configurations.swift */; };
+		E8E6D6B5246A47D5001BD4F4 /* CategoryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */; };
+		E8E6D6B6246AD605001BD4F4 /* NetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828710B2468E68F006EC3CC /* NetworkServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +52,11 @@
 		E82870FC2468D3A3006EC3CC /* CategoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTests.swift; sourceTree = "<group>"; };
 		E82871002468D85E006EC3CC /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		E82871032468D927006EC3CC /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
-		E82871062468E38A006EC3CC /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		E82871062468E38A006EC3CC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E82871092468E4B8006EC3CC /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
-		E828710B2468E68F006EC3CC /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		E828710B2468E68F006EC3CC /* NetworkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceError.swift; sourceTree = "<group>"; };
 		E828710D2468E9BE006EC3CC /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServices.swift; sourceTree = "<group>"; };
 		F35BBB14E53841B3E31A2068 /* Pods_Mobile_TestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_TestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50F676A8FF5907715151592 /* Pods-Mobile Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Test.debug.xcconfig"; path = "Target Support Files/Pods-Mobile Test/Pods-Mobile Test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,9 +196,10 @@
 		E82871082468E4A0006EC3CC /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E82871062468E38A006EC3CC /* WebServices.swift */,
+				E828710B2468E68F006EC3CC /* NetworkServiceError.swift */,
+				E82871062468E38A006EC3CC /* NetworkService.swift */,
 				E82871092468E4B8006EC3CC /* Resource.swift */,
-				E828710B2468E68F006EC3CC /* ServiceError.swift */,
+				E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -382,12 +385,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E82871042468D927006EC3CC /* CategoryType.swift in Sources */,
-				E82871072468E38A006EC3CC /* WebServices.swift in Sources */,
+				E8E6D6B6246AD605001BD4F4 /* NetworkServiceError.swift in Sources */,
+				E82871072468E38A006EC3CC /* NetworkService.swift in Sources */,
 				E828710E2468E9BE006EC3CC /* Configurations.swift in Sources */,
 				E82870D62468D128006EC3CC /* AppDelegate.swift in Sources */,
+				E8E6D6B5246A47D5001BD4F4 /* CategoryServices.swift in Sources */,
 				E828710A2468E4B8006EC3CC /* Resource.swift in Sources */,
 				E82871012468D85E006EC3CC /* CategoryModel.swift in Sources */,
-				E828710C2468E68F006EC3CC /* ServiceError.swift in Sources */,
 				E82870D82468D128006EC3CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

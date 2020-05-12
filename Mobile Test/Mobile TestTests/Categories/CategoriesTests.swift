@@ -19,8 +19,8 @@ class CategoriesTests: XCTestCase {
         super.tearDown()
     }
     
-    func testGetCategories() {
-        let expectation = XCTestExpectation(description: "getCategories - Success")
+    func testGetCategories() throws {
+        let sendsResult = expectation(description: "getCategories - Success")
         
         stub(condition: isScheme("https") && isHost("mobile-test.getsandbox.com") && isPath("/categories"), response: { _ in
             let mockDataString = """
@@ -56,6 +56,20 @@ class CategoriesTests: XCTestCase {
         })
         
         var resultOrNil: Result<[Mobile_Test.Category], Error>? = nil
+        let categoryService = CategoryServices()
+        categoryService.getCategories { result in
+            resultOrNil = result
+            sendsResult.fulfill()
+        }
         
+        waitForExpectations(timeout: 2.0)
+        
+        guard let result = resultOrNil else {
+            XCTAssert(false, "Result must not be nil")
+            return
+        }
+        
+        let categories = try result.get()
+        XCTAssertEqual(categories.count, 2)
     }
 }
