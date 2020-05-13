@@ -66,6 +66,46 @@ class RestaurantsTests: XCTestCase {
                                 "15147028287"
                               ]
                             }
+                          },
+                          {
+                            "_id": "5983ab85951cf747207bed48",
+                            "slug": "quickseries",
+                            "eid": "dc0b0a4c-a9dc-4070-a56d-dca62ff4d849",
+                            "title": "QuickSeries",
+                            "description": "<p>QuickSeries delivers content</p>",
+                            "category_eid": "ac5bd194-11de-48f6-94db-fd16cfccb570",
+                            "__v": 0,
+                            "photo": "https://s3.amazonaws.com/qsapi-files/files/49851e71-5114-4d94-9d9a-7f3cacb1764e/33c22133-1c17-43b8-bf71-b24692c49e5b.jpeg",
+                            "_active": true,
+                            "updated_at": "2017-08-04T14:39:45.585Z",
+                            "created_at": "2017-08-03T23:02:29.705Z",
+                            "socialMedia": {
+                                "youtubeChannel": [
+                                    "https://www.youtube.com/channel/UCT0hbLDa-unWsnZ6Rjzkfug"
+                                ],
+                                "twitter": [
+                                    "https://twitter.com/quickseriespub"
+                                ],
+                                "facebook": [
+                                    "https://www.facebook.com/pages/Quickseries-Publishing-Inc/946403368763231"
+                                ]
+                            },
+                            "contactInfo": {
+                                "website": [
+                                    "http://www.quickseries.com"
+                                ],
+                                "email": [
+                                    "justin.ledoux@quickseries.com"
+                                ],
+                                "faxNumber": [
+                                    "8773293291"
+                                ],
+                            "tollFree": [
+                                    "19003614653"
+                            ],
+                            "phoneNumber": [
+                                    "9545841606"
+                            ]}
                           }]
                           """
             guard let mockedData = mockDataString.data(using: .utf8) else {
@@ -91,7 +131,7 @@ class RestaurantsTests: XCTestCase {
         }
         
         let restaurants = try result.get()
-        XCTAssertEqual(restaurants.count, 1)
+        XCTAssertEqual(restaurants.count, 2)
         
         let firstRestaurantOrNil = restaurants.first
         
@@ -114,6 +154,53 @@ class RestaurantsTests: XCTestCase {
         let updatedDate = dateFormatter.date(from: "2017-08-04T14:37:01.290Z")
         XCTAssertNotNil(firstRestaurant.lastUpdatedDate)
         XCTAssertEqual(firstRestaurant.lastUpdatedDate, updatedDate)
+        XCTAssertNil(firstRestaurant.socialMedia)
+        
+        let secondRestaurantOrNil = restaurants.last
+        guard let secondRestaurant = secondRestaurantOrNil else {
+            XCTAssertNotNil(secondRestaurantOrNil)
+            return
+        }
+        
+        XCTAssertEqual(secondRestaurant.id, "5983ab85951cf747207bed48")
+        let creationDate2 = dateFormatter.date(from: "2017-08-03T23:02:29.705Z")
+        XCTAssertNotNil(secondRestaurant.creationDate)
+        XCTAssertEqual(secondRestaurant.creationDate, creationDate2)
+        XCTAssertEqual(secondRestaurant.restaurantType, "quickseries")
+        XCTAssertEqual(secondRestaurant.categoryEID, UUID(uuidString: "ac5bd194-11de-48f6-94db-fd16cfccb570"))
+        XCTAssertEqual(secondRestaurant.endPointId, UUID(uuidString: "dc0b0a4c-a9dc-4070-a56d-dca62ff4d849"))
+        XCTAssertEqual(secondRestaurant.title, "QuickSeries")
+        XCTAssertNotNil(secondRestaurant.description)
+        XCTAssertEqual(secondRestaurant.description, "<p>QuickSeries delivers content</p>")
+        XCTAssertTrue(secondRestaurant.isActive)
+        let updatedDate2 = dateFormatter.date(from: "2017-08-04T14:39:45.585Z")
+        XCTAssertNotNil(secondRestaurant.lastUpdatedDate)
+        XCTAssertEqual(secondRestaurant.lastUpdatedDate, updatedDate2)
+        
+        XCTAssertNotNil(secondRestaurant.socialMedia)
+        XCTAssertEqual(secondRestaurant.socialMedia?.facebookUrls?.count, 1)
+        XCTAssertEqual(secondRestaurant.socialMedia?.facebookUrls?.first, URL(string: "https://www.facebook.com/pages/Quickseries-Publishing-Inc/946403368763231"))
+        XCTAssertEqual(secondRestaurant.socialMedia?.twitterUrls?.count, 1)
+        XCTAssertEqual(secondRestaurant.socialMedia?.twitterUrls?.first, URL(string: "https://twitter.com/quickseriespub"))
+        XCTAssertEqual(secondRestaurant.socialMedia?.twitterUrls?.first, URL(string: "https://twitter.com/quickseriespub"))
+        XCTAssertEqual(secondRestaurant.socialMedia?.youtubeUrls?.count, 1)
+        XCTAssertEqual(secondRestaurant.socialMedia?.youtubeUrls?.first, URL(string: "https://www.youtube.com/channel/UCT0hbLDa-unWsnZ6Rjzkfug"))
+        
+        XCTAssertNotNil(secondRestaurant.contactInfo.emails)
+        XCTAssertNotNil(secondRestaurant.contactInfo.faxes)
+        XCTAssertNotNil(secondRestaurant.contactInfo.phones)
+        XCTAssertNotNil(secondRestaurant.contactInfo.websites)
+        XCTAssertNotNil(secondRestaurant.contactInfo.tollFree)
+        XCTAssertEqual(secondRestaurant.contactInfo.emails?.count, 1)
+        XCTAssertEqual(secondRestaurant.contactInfo.emails?.first, "justin.ledoux@quickseries.com")
+        XCTAssertEqual(secondRestaurant.contactInfo.websites?.count, 1)
+        XCTAssertEqual(secondRestaurant.contactInfo.websites?.first!, URL(string: "http://www.quickseries.com")!)
+        XCTAssertEqual(secondRestaurant.contactInfo.faxes?.count, 1)
+        XCTAssertEqual(secondRestaurant.contactInfo.faxes?.first, "8773293291")
+        XCTAssertEqual(secondRestaurant.contactInfo.phones?.count, 1)
+        XCTAssertEqual(secondRestaurant.contactInfo.phones?.first, "9545841606")
+        XCTAssertEqual(secondRestaurant.contactInfo.tollFree?.count, 1)
+        XCTAssertEqual(secondRestaurant.contactInfo.tollFree?.first, "19003614653")
     }
     
     func testGeRestaurants_whenReceivingHttp500() throws {

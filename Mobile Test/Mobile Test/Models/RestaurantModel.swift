@@ -27,7 +27,10 @@ struct Restaurant: Decodable {
     let photoUrl: URL?
     
     /// Information regarding the address of the restaurant.
-    let addresses: [Address]
+    let addresses: [Address]?
+    
+    /// Infos about all social media plateform.
+    let socialMedia: SocialMedia?
     
     /// Contact information.
     let contactInfo: ContactInfo
@@ -59,6 +62,7 @@ struct Restaurant: Decodable {
         case creationDate = "created_at"
         case addresses
         case contactInfo
+        case socialMedia
     }
     
     init(from decoder: Decoder) throws {
@@ -70,11 +74,12 @@ struct Restaurant: Decodable {
         self.restaurantType = try values.decode(String.self, forKey: .restaurantType)
         let photoString = try values.decodeIfPresent(String.self, forKey: .photoUrl) ?? ""
         self.photoUrl = URL(string: photoString)
-        self.addresses = try values.decode([Address].self, forKey: .addresses)
+        self.addresses = try values.decodeIfPresent([Address].self, forKey: .addresses)
         self.contactInfo = try values.decode(ContactInfo.self, forKey: .contactInfo)
         self.categoryEID = try values.decode(UUID.self, forKey: .categoryEID)
         self.endPointId = try values.decode(UUID.self, forKey: .endPointId)
         self.isActive = try values.decode(Bool.self, forKey: .isActive)
+        self.socialMedia = try values.decodeIfPresent(SocialMedia.self, forKey: .socialMedia)
         
         // Perticular management of date parsing.
         let lastUpdatedString = try values.decode(String.self, forKey: .lastUpdatedDate)
@@ -134,13 +139,17 @@ struct Address: Decodable {
 // MARK: - ContactInfo
 
 struct ContactInfo: Decodable {
-    let websites: [URL]
-    let emails: [String]
-    let phones: [String]
+    let websites: [URL]?
+    let emails: [String]?
+    let phones: [String]?
+    let tollFree: [String]?
+    let faxes: [String]?
     
     enum CodingKeys: String, CodingKey {
         case websites = "website"
         case emails = "email"
         case phones = "phoneNumber"
+        case tollFree
+        case faxes = "faxNumber"
     }
 }
