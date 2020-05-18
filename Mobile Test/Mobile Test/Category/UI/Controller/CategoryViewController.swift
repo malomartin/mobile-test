@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol CategoryViewControllerDelegate: AnyObject {
+    func viewController(_ viewController: CategoryViewController, didSelectCategory: Category)
+}
+
 final class CategoryViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     private var dataSource = CategoryTableViewDataSource()
+    private var categories = [Category]()
     private lazy var service = CategoryServices()
+    
+    weak var delegate: CategoryViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +36,9 @@ final class CategoryViewController: UIViewController {
             
             switch result {
             case .success(let categories):
+                self.categories.removeAll()
+                self.categories.append(contentsOf: categories)
+                
                 self.dataSource.viewModels.removeAll()
                 self.dataSource.viewModels.append(contentsOf: categories.viewModelValues)
                 self.tableView.dataSource = self.dataSource
@@ -52,4 +62,10 @@ extension CategoryViewController: Storyboarded {}
 
 // MARK:- UITableViewDelegate
 
-extension CategoryViewController: UITableViewDelegate {}
+extension CategoryViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = categories[indexPath.row]
+        delegate?.viewController(self, didSelectCategory: category)
+    }
+}

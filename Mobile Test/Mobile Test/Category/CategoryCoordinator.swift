@@ -18,10 +18,20 @@ final class CategoryCoordinator: Coordinator {
     
     func start() {
         let categoryViewController = CategoryViewController.instanciate()
+        categoryViewController.delegate = self
         navigationController.pushViewController(categoryViewController, animated: true)
     }
     
     func end() {
-        
+        childCoordinators.removeAll()
+    }
+}
+
+// MARK: - CategoryViewControllerDelegate
+
+extension CategoryCoordinator: CategoryViewControllerDelegate {
+    
+    func viewController(_ viewController: CategoryViewController, didSelectCategory: Category) {
+        // TODO: Show category
     }
 }
