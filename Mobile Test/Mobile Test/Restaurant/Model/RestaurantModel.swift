@@ -9,10 +9,26 @@
 import Foundation
 import CoreLocation
 
-struct Restaurant: Decodable {
+struct Restaurant: Resource, Describable, Locatable, Media, Joinable, Picturable {
     
-    /// The unique identifier.
+    /// Type of the restaurant.
+    let restaurantType: String
+    
+    /// Unused. Parsed anyways.
+    let categoryEID: UUID
+    
+    /// Open hours.
+    let businessHours: BusinessHours?
+    
+    // MARK: Resource
+    
     let id: String
+    let eid: UUID
+    let lastUpdatedDate: Date?
+    let creationDate: Date?
+    let isActive: Bool
+    
+    // MARK: Describable
     
     /// Human readable ttle of the category. i.e. "Title".
     let title: String
@@ -20,27 +36,24 @@ struct Restaurant: Decodable {
     /// Human readable description of the category.
     let description: String?
 
-    /// Type of the restaurant.
-    let restaurantType: String
-    
-    /// Link to the photo on Amazon.
-    let photoUrl: URL?
+    // MARK: Locatable
     
     /// Information regarding the address of the restaurant.
     let addresses: [Address]?
     
+    // MARK: Media
     /// Infos about all social media plateform.
     let socialMedia: SocialMedia?
+    
+    // MARK: Joinable
     
     /// Contact information.
     let contactInfo: ContactInfo
     
-    // Unused. Parsed anyways.
-    let categoryEID: UUID
-    let endPointId: UUID
-    let isActive: Bool
-    let lastUpdatedDate: Date?
-    let creationDate: Date?
+    // MARK: Picturable
+    
+    /// Link to the photo on Amazon.
+    let photoUrl: URL?
     
     private var dateFormatter: ISO8601DateFormatter = {
         let formatter = ISO8601DateFormatter()
@@ -63,6 +76,7 @@ struct Restaurant: Decodable {
         case addresses
         case contactInfo
         case socialMedia
+        case businessHours = "bizHours"
     }
     
     init(from decoder: Decoder) throws {
@@ -77,7 +91,7 @@ struct Restaurant: Decodable {
         self.addresses = try values.decodeIfPresent([Address].self, forKey: .addresses)
         self.contactInfo = try values.decode(ContactInfo.self, forKey: .contactInfo)
         self.categoryEID = try values.decode(UUID.self, forKey: .categoryEID)
-        self.endPointId = try values.decode(UUID.self, forKey: .endPointId)
+        self.eid = try values.decode(UUID.self, forKey: .endPointId)
         self.isActive = try values.decode(Bool.self, forKey: .isActive)
         self.socialMedia = try values.decodeIfPresent(SocialMedia.self, forKey: .socialMedia)
         
@@ -87,6 +101,8 @@ struct Restaurant: Decodable {
         
         let creationDateString = try values.decode(String.self, forKey: .creationDate)
         creationDate = dateFormatter.date(from: creationDateString)
+        
+        self.businessHours = try values.decodeIfPresent(BusinessHours.self, forKey: .businessHours)
     }
 }
 
@@ -151,5 +167,35 @@ struct ContactInfo: Decodable {
         case phones = "phoneNumber"
         case tollFree
         case faxes = "faxNumber"
+    }
+    
+    /// We need to implement the Decodable constructor in order to void all empty strings
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.websites = try values.decodeIfPresent([URL].self, forKey: .websites)
+        
+        if let emails = try values.decodeIfPresent([String].self, forKey: .emails) {
+            self.emails = emails.filter({ !$0.isEmpty })
+        } else {
+            self.emails = nil
+        }
+        
+        if let phones = try values.decodeIfPresent([String].self, forKey: .phones) {
+            self.phones = phones.filter({ !$0.isEmpty })
+        } else {
+            self.phones = nil
+        }
+        
+        if let tollFree = try values.decodeIfPresent([String].self, forKey: .tollFree) {
+            self.tollFree = tollFree.filter({ !$0.isEmpty })
+        } else {
+            self.tollFree = nil
+        }
+        
+        if let faxes = try values.decodeIfPresent([String].self, forKey: .faxes) {
+            self.faxes = faxes.filter({ !$0.isEmpty })
+        } else {
+            self.faxes = nil
+        }
     }
 }

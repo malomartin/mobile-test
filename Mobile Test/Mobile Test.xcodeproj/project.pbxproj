@@ -9,20 +9,36 @@
 /* Begin PBXBuildFile section */
 		069FC5F0738736AC2A2627F9 /* Pods_Mobile_TestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35BBB14E53841B3E31A2068 /* Pods_Mobile_TestTests.framework */; };
 		892DDE35C202D89822EBD892 /* Pods_Mobile_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE46493040123DB9A8D7CD /* Pods_Mobile_Test.framework */; };
+		E8239DFA2470C57800FCA8A4 /* ResourceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8239DF92470C57800FCA8A4 /* ResourceProtocols.swift */; };
+		E8239DFC2470C9A100FCA8A4 /* BusinessHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8239DFB2470C9A100FCA8A4 /* BusinessHours.swift */; };
+		E8239DFE2470EC6F00FCA8A4 /* ISO8601DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8239DFD2470EC6F00FCA8A4 /* ISO8601DateFormatterExtensions.swift */; };
 		E82870D62468D128006EC3CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82870D52468D128006EC3CC /* AppDelegate.swift */; };
 		E82870D82468D128006EC3CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82870D72468D128006EC3CC /* SceneDelegate.swift */; };
-		E82870DD2468D128006EC3CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82870DB2468D128006EC3CC /* Main.storyboard */; };
 		E82870DF2468D12C006EC3CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82870DE2468D12C006EC3CC /* Assets.xcassets */; };
 		E82870E22468D12C006EC3CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82870E02468D12C006EC3CC /* LaunchScreen.storyboard */; };
 		E82870FD2468D3A3006EC3CC /* CategoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82870FC2468D3A3006EC3CC /* CategoriesTests.swift */; };
 		E82871012468D85E006EC3CC /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871002468D85E006EC3CC /* CategoryModel.swift */; };
 		E82871072468E38A006EC3CC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82871062468E38A006EC3CC /* NetworkService.swift */; };
 		E828710E2468E9BE006EC3CC /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828710D2468E9BE006EC3CC /* Configurations.swift */; };
+		E8540E382472CF870038C520 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8540E372472CF870038C520 /* CategoryViewController.swift */; };
+		E8540E3B2472D0550038C520 /* CategoryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8540E3A2472D0550038C520 /* CategoryViewController.storyboard */; };
+		E8540E3D2472D0CC0038C520 /* CategoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8540E3C2472D0CC0038C520 /* CategoryCoordinator.swift */; };
+		E8540E3F2472D0F60038C520 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8540E3E2472D0F60038C520 /* Coordinator.swift */; };
+		E8540E412472D4BA0038C520 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8540E402472D4BA0038C520 /* AppCoordinator.swift */; };
+		E8540E432472DC8F0038C520 /* CategoryTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8540E422472DC8F0038C520 /* CategoryTableViewDataSource.swift */; };
+		E8540E452472DCDA0038C520 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8540E442472DCDA0038C520 /* ViewModel.swift */; };
+		E8540E492472DE820038C520 /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8540E482472DE820038C520 /* SectionViewModel.swift */; };
+		E8540E502472E1860038C520 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8540E4E2472E1860038C520 /* CategoryTableViewCell.swift */; };
+		E8540E512472E1860038C520 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8540E4F2472E1860038C520 /* CategoryTableViewCell.xib */; };
+		E8A0D1D3246C8C22003ECF62 /* VacationSpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A0D1D2246C8C22003ECF62 /* VacationSpotTests.swift */; };
 		E8E6D6B5246A47D5001BD4F4 /* CategoryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */; };
 		E8E6D6B6246AD605001BD4F4 /* NetworkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828710B2468E68F006EC3CC /* NetworkServiceError.swift */; };
 		E8E6D6B8246AEEA6001BD4F4 /* RestaurantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6B7246AEEA6001BD4F4 /* RestaurantService.swift */; };
 		E8E6D6BA246AEFE9001BD4F4 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6B9246AEFE9001BD4F4 /* RestaurantModel.swift */; };
 		E8E6D6BC246B1031001BD4F4 /* RestaurantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6BB246B1031001BD4F4 /* RestaurantsTests.swift */; };
+		E8E6D6BE246B33BE001BD4F4 /* VacationSpotService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6BD246B33BE001BD4F4 /* VacationSpotService.swift */; };
+		E8E6D6C0246B33E2001BD4F4 /* VacationSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6BF246B33E2001BD4F4 /* VacationSpotModel.swift */; };
+		E8E6D6C2246B344F001BD4F4 /* SocialMediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D6C1246B344F001BD4F4 /* SocialMediaModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +56,12 @@
 		73BE46493040123DB9A8D7CD /* Pods_Mobile_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C8D91ABBC5DE5CB5C9C7A9 /* Pods-Mobile TestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile TestTests.debug.xcconfig"; path = "Target Support Files/Pods-Mobile TestTests/Pods-Mobile TestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		975D0616F3DAFB87CBD11FA2 /* Pods-Mobile TestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile TestTests.release.xcconfig"; path = "Target Support Files/Pods-Mobile TestTests/Pods-Mobile TestTests.release.xcconfig"; sourceTree = "<group>"; };
+		E8239DF92470C57800FCA8A4 /* ResourceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceProtocols.swift; sourceTree = "<group>"; };
+		E8239DFB2470C9A100FCA8A4 /* BusinessHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHours.swift; sourceTree = "<group>"; };
+		E8239DFD2470EC6F00FCA8A4 /* ISO8601DateFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601DateFormatterExtensions.swift; sourceTree = "<group>"; };
 		E82870D22468D128006EC3CC /* Mobile Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82870D52468D128006EC3CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E82870D72468D128006EC3CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E82870DC2468D128006EC3CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E82870DE2468D12C006EC3CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E82870E12468D12C006EC3CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E82870E32468D12C006EC3CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,10 +73,24 @@
 		E82871062468E38A006EC3CC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E828710B2468E68F006EC3CC /* NetworkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceError.swift; sourceTree = "<group>"; };
 		E828710D2468E9BE006EC3CC /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		E8540E372472CF870038C520 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		E8540E3A2472D0550038C520 /* CategoryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryViewController.storyboard; sourceTree = "<group>"; };
+		E8540E3C2472D0CC0038C520 /* CategoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCoordinator.swift; sourceTree = "<group>"; };
+		E8540E3E2472D0F60038C520 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E8540E402472D4BA0038C520 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		E8540E422472DC8F0038C520 /* CategoryTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewDataSource.swift; sourceTree = "<group>"; };
+		E8540E442472DCDA0038C520 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		E8540E482472DE820038C520 /* SectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
+		E8540E4E2472E1860038C520 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		E8540E4F2472E1860038C520 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		E8A0D1D2246C8C22003ECF62 /* VacationSpotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationSpotTests.swift; sourceTree = "<group>"; };
 		E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServices.swift; sourceTree = "<group>"; };
 		E8E6D6B7246AEEA6001BD4F4 /* RestaurantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantService.swift; sourceTree = "<group>"; };
 		E8E6D6B9246AEFE9001BD4F4 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		E8E6D6BB246B1031001BD4F4 /* RestaurantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTests.swift; sourceTree = "<group>"; };
+		E8E6D6BD246B33BE001BD4F4 /* VacationSpotService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationSpotService.swift; sourceTree = "<group>"; };
+		E8E6D6BF246B33E2001BD4F4 /* VacationSpotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacationSpotModel.swift; sourceTree = "<group>"; };
+		E8E6D6C1246B344F001BD4F4 /* SocialMediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaModel.swift; sourceTree = "<group>"; };
 		F35BBB14E53841B3E31A2068 /* Pods_Mobile_TestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_TestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50F676A8FF5907715151592 /* Pods-Mobile Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Test.debug.xcconfig"; path = "Target Support Files/Pods-Mobile Test/Pods-Mobile Test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +124,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E8239DFF2470EC7700FCA8A4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E8239DFD2470EC6F00FCA8A4 /* ISO8601DateFormatterExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E82870C92468D128006EC3CC = {
 			isa = PBXGroup;
 			children = (
@@ -115,13 +155,10 @@
 		E82870D42468D128006EC3CC /* Mobile Test */ = {
 			isa = PBXGroup;
 			children = (
-				E828710D2468E9BE006EC3CC /* Configurations.swift */,
-				E82870D52468D128006EC3CC /* AppDelegate.swift */,
-				E82870D72468D128006EC3CC /* SceneDelegate.swift */,
-				E82870DB2468D128006EC3CC /* Main.storyboard */,
-				E82871082468E4A0006EC3CC /* Services */,
-				E82871052468DC21006EC3CC /* Models */,
-				E82870F72468D18B006EC3CC /* Assets */,
+				E8540E322472CE930038C520 /* General */,
+				E8540E292472CDCB0038C520 /* Category */,
+				E8540E2C2472CE000038C520 /* Restaurant */,
+				E8540E2F2472CE590038C520 /* Vacantion Spot */,
 				E82870F82468D19A006EC3CC /* Supporting files */,
 			);
 			path = "Mobile Test";
@@ -138,18 +175,11 @@
 			path = "Mobile TestTests";
 			sourceTree = "<group>";
 		};
-		E82870F72468D18B006EC3CC /* Assets */ = {
+		E82870F82468D19A006EC3CC /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
 				E82870DE2468D12C006EC3CC /* Assets.xcassets */,
 				E82870E02468D12C006EC3CC /* LaunchScreen.storyboard */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		E82870F82468D19A006EC3CC /* Supporting files */ = {
-			isa = PBXGroup;
-			children = (
 				E82870E32468D12C006EC3CC /* Info.plist */,
 			);
 			path = "Supporting files";
@@ -160,6 +190,7 @@
 			children = (
 				E82870FC2468D3A3006EC3CC /* CategoriesTests.swift */,
 				E8E6D6BB246B1031001BD4F4 /* RestaurantsTests.swift */,
+				E8A0D1D2246C8C22003ECF62 /* VacationSpotTests.swift */,
 				E82870FB2468D3A2006EC3CC /* Mobile TestTests-Bridging-Header.h */,
 			);
 			path = Categories;
@@ -179,24 +210,161 @@
 			path = Restaurants;
 			sourceTree = "<group>";
 		};
-		E82871052468DC21006EC3CC /* Models */ = {
+		E8540E292472CDCB0038C520 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E8540E3C2472D0CC0038C520 /* CategoryCoordinator.swift */,
+				E8540E352472CF410038C520 /* UI */,
+				E8540E2B2472CDEF0038C520 /* Model */,
+				E8540E2A2472CDD80038C520 /* Service */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		E8540E2A2472CDD80038C520 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E8540E2B2472CDEF0038C520 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				E82871002468D85E006EC3CC /* CategoryModel.swift */,
-				E8E6D6B9246AEFE9001BD4F4 /* RestaurantModel.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		E82871082468E4A0006EC3CC /* Services */ = {
+		E8540E2C2472CE000038C520 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				E8540E2D2472CE080038C520 /* Service */,
+				E8540E2E2472CE0E0038C520 /* Model */,
+			);
+			path = Restaurant;
+			sourceTree = "<group>";
+		};
+		E8540E2D2472CE080038C520 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E8E6D6B7246AEEA6001BD4F4 /* RestaurantService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E8540E2E2472CE0E0038C520 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E8239DFB2470C9A100FCA8A4 /* BusinessHours.swift */,
+				E8E6D6B9246AEFE9001BD4F4 /* RestaurantModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E8540E2F2472CE590038C520 /* Vacantion Spot */ = {
+			isa = PBXGroup;
+			children = (
+				E8540E312472CE6E0038C520 /* Model */,
+				E8540E302472CE620038C520 /* Service */,
+			);
+			path = "Vacantion Spot";
+			sourceTree = "<group>";
+		};
+		E8540E302472CE620038C520 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E8E6D6BD246B33BE001BD4F4 /* VacationSpotService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E8540E312472CE6E0038C520 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E8E6D6BF246B33E2001BD4F4 /* VacationSpotModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E8540E322472CE930038C520 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				E8540E402472D4BA0038C520 /* AppCoordinator.swift */,
+				E828710D2468E9BE006EC3CC /* Configurations.swift */,
+				E82870D52468D128006EC3CC /* AppDelegate.swift */,
+				E82870D72468D128006EC3CC /* SceneDelegate.swift */,
+				E8540E392472CFC90038C520 /* Protocols */,
+				E8540E472472DE6E0038C520 /* ViewModel */,
+				E8239DFF2470EC7700FCA8A4 /* Extensions */,
+				E8540E342472CE9F0038C520 /* Model */,
+				E8540E332472CE9A0038C520 /* Service */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		E8540E332472CE9A0038C520 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				E828710B2468E68F006EC3CC /* NetworkServiceError.swift */,
 				E82871062468E38A006EC3CC /* NetworkService.swift */,
-				E8E6D6B4246A47D5001BD4F4 /* CategoryServices.swift */,
-				E8E6D6B7246AEEA6001BD4F4 /* RestaurantService.swift */,
 			);
-			path = Services;
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E8540E342472CE9F0038C520 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E8E6D6C1246B344F001BD4F4 /* SocialMediaModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E8540E352472CF410038C520 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E8540E4D2472E0A40038C520 /* Cells */,
+				E8540E362472CF500038C520 /* Controller */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E8540E362472CF500038C520 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E8540E372472CF870038C520 /* CategoryViewController.swift */,
+				E8540E3A2472D0550038C520 /* CategoryViewController.storyboard */,
+				E8540E422472DC8F0038C520 /* CategoryTableViewDataSource.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E8540E392472CFC90038C520 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E8239DF92470C57800FCA8A4 /* ResourceProtocols.swift */,
+				E8540E3E2472D0F60038C520 /* Coordinator.swift */,
+				E8540E442472DCDA0038C520 /* ViewModel.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E8540E472472DE6E0038C520 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E8540E482472DE820038C520 /* SectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E8540E4D2472E0A40038C520 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E8540E4E2472E1860038C520 /* CategoryTableViewCell.swift */,
+				E8540E4F2472E1860038C520 /* CategoryTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E92207120FB988024C108F25 /* Pods */ = {
@@ -296,8 +464,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E82870E22468D12C006EC3CC /* LaunchScreen.storyboard in Resources */,
+				E8540E512472E1860038C520 /* CategoryTableViewCell.xib in Resources */,
 				E82870DF2468D12C006EC3CC /* Assets.xcassets in Resources */,
-				E82870DD2468D128006EC3CC /* Main.storyboard in Resources */,
+				E8540E3B2472D0550038C520 /* CategoryViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,14 +548,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8239DFA2470C57800FCA8A4 /* ResourceProtocols.swift in Sources */,
 				E8E6D6B6246AD605001BD4F4 /* NetworkServiceError.swift in Sources */,
+				E8540E502472E1860038C520 /* CategoryTableViewCell.swift in Sources */,
+				E8E6D6C2246B344F001BD4F4 /* SocialMediaModel.swift in Sources */,
+				E8E6D6C0246B33E2001BD4F4 /* VacationSpotModel.swift in Sources */,
+				E8540E382472CF870038C520 /* CategoryViewController.swift in Sources */,
 				E82871072468E38A006EC3CC /* NetworkService.swift in Sources */,
+				E8540E492472DE820038C520 /* SectionViewModel.swift in Sources */,
 				E828710E2468E9BE006EC3CC /* Configurations.swift in Sources */,
 				E8E6D6BA246AEFE9001BD4F4 /* RestaurantModel.swift in Sources */,
+				E8540E432472DC8F0038C520 /* CategoryTableViewDataSource.swift in Sources */,
+				E8540E3F2472D0F60038C520 /* Coordinator.swift in Sources */,
 				E82870D62468D128006EC3CC /* AppDelegate.swift in Sources */,
 				E8E6D6B5246A47D5001BD4F4 /* CategoryServices.swift in Sources */,
+				E8239DFE2470EC6F00FCA8A4 /* ISO8601DateFormatterExtensions.swift in Sources */,
+				E8540E452472DCDA0038C520 /* ViewModel.swift in Sources */,
+				E8540E3D2472D0CC0038C520 /* CategoryCoordinator.swift in Sources */,
+				E8239DFC2470C9A100FCA8A4 /* BusinessHours.swift in Sources */,
 				E82871012468D85E006EC3CC /* CategoryModel.swift in Sources */,
+				E8540E412472D4BA0038C520 /* AppCoordinator.swift in Sources */,
 				E8E6D6B8246AEEA6001BD4F4 /* RestaurantService.swift in Sources */,
+				E8E6D6BE246B33BE001BD4F4 /* VacationSpotService.swift in Sources */,
 				E82870D82468D128006EC3CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +580,7 @@
 			files = (
 				E8E6D6BC246B1031001BD4F4 /* RestaurantsTests.swift in Sources */,
 				E82870FD2468D3A3006EC3CC /* CategoriesTests.swift in Sources */,
+				E8A0D1D3246C8C22003ECF62 /* VacationSpotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,14 +595,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E82870DB2468D128006EC3CC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E82870DC2468D128006EC3CC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E82870E02468D12C006EC3CC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

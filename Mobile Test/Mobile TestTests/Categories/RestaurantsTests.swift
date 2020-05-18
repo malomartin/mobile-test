@@ -41,6 +41,16 @@ class RestaurantsTests: XCTestCase {
                             "_active": true,
                             "updated_at": "2017-08-04T14:37:01.290Z",
                             "created_at": "2017-08-03T22:55:30.469Z",
+                            "bizHours": {
+                                "sunday": {
+                                    "from": "10:00 AM",
+                                    "to": "11:45 AM"
+                                },
+                                "monday": {
+                                    "from": "09:00 AM",
+                                    "to": "06:30 PM"
+                                }
+                            },
                             "addresses": [
                               {
                                 "address1": "1360 Sunnybrooke",
@@ -146,7 +156,7 @@ class RestaurantsTests: XCTestCase {
         XCTAssertEqual(firstRestaurant.creationDate, creationDate)
         XCTAssertEqual(firstRestaurant.restaurantType, "pizza-spanos")
         XCTAssertEqual(firstRestaurant.categoryEID, UUID(uuidString: "ac5bd194-11de-48f6-94db-fd16cfccb570"))
-        XCTAssertEqual(firstRestaurant.endPointId, UUID(uuidString: "8bb64496-3e68-4b4d-902e-1ac3ec494f21"))
+        XCTAssertEqual(firstRestaurant.eid, UUID(uuidString: "8bb64496-3e68-4b4d-902e-1ac3ec494f21"))
         XCTAssertEqual(firstRestaurant.title, "Pizza Spanos")
         XCTAssertNotNil(firstRestaurant.description)
         XCTAssertEqual(firstRestaurant.description, "<p>Powering Devs Everywhere</p>")
@@ -155,6 +165,16 @@ class RestaurantsTests: XCTestCase {
         XCTAssertNotNil(firstRestaurant.lastUpdatedDate)
         XCTAssertEqual(firstRestaurant.lastUpdatedDate, updatedDate)
         XCTAssertNil(firstRestaurant.socialMedia)
+        
+        XCTAssertNotNil(firstRestaurant.businessHours)
+        XCTAssertEqual(firstRestaurant.businessHours?.days.count, 2)
+        
+        XCTAssertEqual(firstRestaurant.businessHours!.days.first!.name, "Sunday")
+        XCTAssertEqual(firstRestaurant.businessHours!.days.first!.from, "10:00 AM")
+        XCTAssertEqual(firstRestaurant.businessHours!.days.first!.to, "11:45 AM")
+        XCTAssertEqual(firstRestaurant.businessHours!.days.last!.name, "Monday")
+        XCTAssertEqual(firstRestaurant.businessHours!.days.last!.from, "09:00 AM")
+        XCTAssertEqual(firstRestaurant.businessHours!.days.last!.to, "06:30 PM")
         
         let secondRestaurantOrNil = restaurants.last
         guard let secondRestaurant = secondRestaurantOrNil else {
@@ -168,7 +188,7 @@ class RestaurantsTests: XCTestCase {
         XCTAssertEqual(secondRestaurant.creationDate, creationDate2)
         XCTAssertEqual(secondRestaurant.restaurantType, "quickseries")
         XCTAssertEqual(secondRestaurant.categoryEID, UUID(uuidString: "ac5bd194-11de-48f6-94db-fd16cfccb570"))
-        XCTAssertEqual(secondRestaurant.endPointId, UUID(uuidString: "dc0b0a4c-a9dc-4070-a56d-dca62ff4d849"))
+        XCTAssertEqual(secondRestaurant.eid, UUID(uuidString: "dc0b0a4c-a9dc-4070-a56d-dca62ff4d849"))
         XCTAssertEqual(secondRestaurant.title, "QuickSeries")
         XCTAssertNotNil(secondRestaurant.description)
         XCTAssertEqual(secondRestaurant.description, "<p>QuickSeries delivers content</p>")

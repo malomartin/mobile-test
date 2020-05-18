@@ -9,41 +9,34 @@
 import Foundation
 
 /// A category as received from web services.
-struct Category: Decodable {
+struct Category: Resource, Describable {
+    
+    // MARK: Resource
     
     /// The unique identifier.
     let id: String
     
     /// Last time the category has been updated.
     let lastUpdatedDate: Date?
-    
-    /// Type of the category.
-    let categoryType: CategoryType
+    let creationDate: Date?
+    let eid: UUID
     
     /// Not used.
     let moduleEID: UUID
+        
+    /// Type of the category.
+    let categoryType: CategoryType
     
-    /// Not used.
-    let endPointId: UUID
+    /// Unused.
+    let isActive: Bool
+    
+    // MARK: Describable
     
     /// Human readable ttle of the category. i.e. "Title".
     let title: String
     
     /// Human readable description of the category.
     let description: String?
-    
-    /// Not used.
-    let isActive: Bool
-    
-    /// Not used.
-    let creationDate: Date?
-    
-    private var dateFormatter: ISO8601DateFormatter = {
-        let formatter = ISO8601DateFormatter()
-        formatter.timeZone = .current
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        return formatter
-    }()
     
     // MARK: Decodable
     
@@ -54,17 +47,17 @@ struct Category: Decodable {
         self.id = try values.decode(String.self, forKey: .id)
         self.categoryType = try values.decode(CategoryType.self, forKey: .categoryType)
         self.moduleEID = try values.decode(UUID.self, forKey: .moduleEID)
-        self.endPointId = try values.decode(UUID.self, forKey: .endPointId)
+        self.eid = try values.decode(UUID.self, forKey: .endPointId)
         self.title = try values.decode(String.self, forKey: .title)
         self.description = try values.decodeIfPresent(String.self, forKey: .description)
         self.isActive = try values.decode(Bool.self, forKey: .isActive)
         
         // Perticular management of date parsing.
         let lastUpdatedString = try values.decode(String.self, forKey: .lastUpdatedDate)
-        lastUpdatedDate = dateFormatter.date(from: lastUpdatedString)
+        self.lastUpdatedDate = ISO8601DateFormatter.internetDateTimeFormatter.date(from: lastUpdatedString)
         
         let creationDateString = try values.decode(String.self, forKey: .creationDate)
-        creationDate = dateFormatter.date(from: creationDateString)
+        self.creationDate = ISO8601DateFormatter.internetDateTimeFormatter.date(from: creationDateString)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -79,6 +72,7 @@ struct Category: Decodable {
         case creationDate = "created_at"
     }
 }
+
 
 // MARK: - CategoryType
 

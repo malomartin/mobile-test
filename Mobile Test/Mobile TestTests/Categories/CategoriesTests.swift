@@ -92,7 +92,7 @@ class CategoriesTests: XCTestCase {
         XCTAssertEqual(firstCategory.creationDate, creationDate)
         XCTAssertEqual(firstCategory.categoryType, CategoryType.restaurants)
         XCTAssertEqual(firstCategory.moduleEID, UUID(uuidString: "aad16857-166d-43d4-8f16-d097902838cf"))
-        XCTAssertEqual(firstCategory.endPointId, UUID(uuidString: "ac5bd194-11de-48f6-94db-fd16cfccb570"))
+        XCTAssertEqual(firstCategory.eid, UUID(uuidString: "ac5bd194-11de-48f6-94db-fd16cfccb570"))
         XCTAssertEqual(firstCategory.title, "Restaurants")
         XCTAssertNotNil(firstCategory.description)
         XCTAssertEqual(firstCategory.description, "Find local restaurants")

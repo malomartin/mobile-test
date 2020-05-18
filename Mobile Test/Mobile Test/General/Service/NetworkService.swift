@@ -21,7 +21,7 @@ final class NetworkService<T: Decodable> {
     
     // Enqueued `CompletionHandler`.
     private var pendingHandlers = [CompletionHandler<T>]()
-     
+    
     // MARK: - Method
     
     ///
@@ -32,10 +32,11 @@ final class NetworkService<T: Decodable> {
         guard pendingHandlers.count == 1 else { return }
         
         queue.async { [weak self] in
-            self?.session.dataTask(with: request, completionHandler: { (dataOrNil, urlResponseOrNil, errorOrNil) in
+            let task = self?.session.dataTask(with: request, completionHandler: { (dataOrNil, urlResponseOrNil, errorOrNil) in
                 let result = self?.handleResponseData(dataOrNil, responseOrNil: urlResponseOrNil, errorOrNil: errorOrNil, using: type)
                 self?.handleResult(result)
-                }).resume()
+            })
+            task?.resume()
         }
     }
     

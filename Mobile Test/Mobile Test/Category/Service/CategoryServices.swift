@@ -18,9 +18,13 @@ final class CategoryServices {
     ///                                It will contain an array of `Category` if the retrieval was successful.
     func getCategories(completionHandler: @escaping (Result<[Category], Error>) -> Void) {
         let url = Configuration.servicseBaseUrl.appendingPathComponent("categories")
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         networkService.getResourcesOfType([Category].self, request: request) { result in
-            completionHandler(result)
+           
+            DispatchQueue.main.async {
+                completionHandler(result)
+            }
         }
     }
 }

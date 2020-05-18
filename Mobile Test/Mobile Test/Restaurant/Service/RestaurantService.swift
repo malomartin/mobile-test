@@ -18,9 +18,13 @@ final class RestaurantService {
     ///                                It will contain an array of `Category` if the retrieval was successful.
     func getRestaurants(completionHandler: @escaping (Result<[Restaurant], Error>) -> Void) {
         let url = Configuration.servicseBaseUrl.appendingPathComponent("restaurants")
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         networkService.getResourcesOfType([Restaurant].self, request: request) { result in
-            completionHandler(result)
+            
+            DispatchQueue.main.async {
+                completionHandler(result)
+            }
         }
     }
 }
