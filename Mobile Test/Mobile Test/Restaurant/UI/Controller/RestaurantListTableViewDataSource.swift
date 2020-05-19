@@ -1,20 +1,19 @@
 //
-//  CategoryTableViewDataSource.swift
+//  RestaurantListTableViewDataSource.swift
 //  Mobile Test
 //
-//  Created by Martin Malo on 2020-05-18.
+//  Created by Martin Malo on 2020-05-19.
 //  Copyright © 2020 Martin Malo. All rights reserved.
 //
 
 import UIKit
 
-final class CategoryTableViewDataSource: NSObject, UITableViewDataSource {
+final class RestaurantListTableViewDataSource: NSObject, UITableViewDataSource {
     
     var viewModels = [ReusableCellViewModel]()
     
-    init(categories: [Category]? = nil) {
-        guard let categories = categories else { return }
-        viewModels.append(contentsOf: categories.viewModelValues)
+    init(restaurants: [Restaurant]) {
+        self.viewModels.append(contentsOf: restaurants.viewModelValues)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -35,9 +34,9 @@ final class CategoryTableViewDataSource: NSObject, UITableViewDataSource {
 
 // MARK: - Category Extension
 
-extension Sequence where Element == Category {
+extension Sequence where Element == Restaurant {
     
     var viewModelValues: [ReusableCellViewModel] {
-        return map({ ItemTableViewCellViewModel(category: $0) })
+        return map({ ItemTableViewCellViewModel(restaurant: $0) })
     }
 }

@@ -10,5 +10,5 @@ import Foundation
 
 struct SectionViewModel {
     let title: String
-    let rows: [ViewModel]
+    let rows: [ReusableCellViewModel]
 }

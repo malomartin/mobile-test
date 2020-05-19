@@ -27,6 +27,7 @@ protocol Coordinator {
     func end() 
 }
 
+
 // MARK: - Storyboarded
 
 /// Use this protocol if you want a `UIViewController` to be easily instanciate from its `UIStoryboard`.
@@ -45,4 +46,10 @@ extension Storyboarded where Self: UIViewController {
         let storyboard = UIStoryboard(name: className, bundle: nil)
         return storyboard.instantiateViewController(identifier: className)
     }
+}
+
+// MARK: - CoordinatorNavigationDelegate
+
+protocol CoordinatorNavigationDelegate: AnyObject {
+    func coordinatorDidEndFlow(_ coordinator: Coordinator)
 }

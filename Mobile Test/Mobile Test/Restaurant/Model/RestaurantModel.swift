@@ -80,6 +80,7 @@ struct Restaurant: Resource, Describable, Locatable, Media, Joinable, Picturable
     }
     
     init(from decoder: Decoder) throws {
+        
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try values.decode(String.self, forKey: .id)
@@ -115,7 +116,7 @@ struct Address: Decodable {
     let city: String
     let state: String
     let country: String
-    let coordinates: CLLocationCoordinate2D
+    let coordinates: CLLocationCoordinate2D?
     
     enum CodingKeys: String, CodingKey {
         case address1
@@ -134,7 +135,7 @@ struct Address: Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        let gpsValues = try values.nestedContainer(keyedBy: GPSCodingKey.self, forKey: .gps)
+        let gpsValuesOrNil = try? values.nestedContainer(keyedBy: GPSCodingKey.self, forKey: .gps)
         
         self.address1 = try values.decode(String.self, forKey: .address1)
         self.label = try values.decode(String.self, forKey: .label)
@@ -144,11 +145,15 @@ struct Address: Decodable {
         self.country = try values.decode(String.self, forKey: .country)
         
         // Convert gps coordinate to core location coordinate.
-        let latitude = try gpsValues.decode(String.self, forKey: .latitude)
-        let longitude = try gpsValues.decode(String.self, forKey: .longitude)
-        
-        guard let lat = Double(latitude), let long = Double(longitude) else { throw NetworkServiceError.decoding }
-        self.coordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(long))
+        if let gpsValues = gpsValuesOrNil {
+            let latitude = try gpsValues.decode(String.self, forKey: .latitude)
+            let longitude = try gpsValues.decode(String.self, forKey: .longitude)
+            
+            guard let lat = Double(latitude), let long = Double(longitude) else { throw NetworkServiceError.decoding }
+            self.coordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(lat), longitude: CLLocationDegrees(long))
+        } else {
+            self.coordinates = nil
+        }
     }
 }
 
@@ -199,3 +204,4 @@ struct ContactInfo: Decodable {
         }
     }
 }
+

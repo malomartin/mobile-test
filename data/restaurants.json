@@ -151,3 +151,5 @@
     }
   }
 ]
+
+Resource, Describable, Locatable, Media, Joinable, Picturable

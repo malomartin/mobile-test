@@ -9,14 +9,14 @@
 import UIKit
 
 protocol CategoryViewControllerDelegate: AnyObject {
-    func viewController(_ viewController: CategoryViewController, didSelectCategory: Category)
+    func viewController(_ viewController: CategoryViewController, didSelectCategory category: Category)
 }
 
 final class CategoryViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     private var dataSource = CategoryTableViewDataSource()
-    private var categories = [Category]()
+    private lazy var categories = [Category]()
     private lazy var service = CategoryServices()
     
     weak var delegate: CategoryViewControllerDelegate?
@@ -27,8 +27,7 @@ final class CategoryViewController: UIViewController {
         title = "Categories"
         
         tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 80.0
+        tableView.contentInset.top = 32.0
         navigationController?.navigationBar.prefersLargeTitles = true
         registerCells()
     
@@ -44,15 +43,16 @@ final class CategoryViewController: UIViewController {
                 self.tableView.dataSource = self.dataSource
                 self.tableView.reloadData()
             
-            case .failure (let error):
-                print(error)
-                // TODO error management
+            case .failure (_):
+                // TODO better error handling.
+                
+                WarningPresenter.presentAlert(in: self, message: "An error occured please try again later:", title: "Warning")
             }
         }
     }
     
     private func registerCells() {
-        tableView.register(UINib(nibName: CategoryTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: CategoryTableViewCell.reuseIdentifier)
+        tableView.register(UINib(nibName: ItemTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ItemTableViewCell.reuseIdentifier)
     }
 }
 

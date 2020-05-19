@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Restaurant List View Controller-->
+        <scene sceneID="zoY-Lg-jFo">
+            <objects>
+                <viewController storyboardIdentifier="RestaurantListViewController" id="6qy-uI-hg0" customClass="RestaurantListViewController" customModule="Mobile_Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WG7-aB-fTq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1di-bC-d1A">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1di-bC-d1A" firstAttribute="leading" secondItem="1de-bl-kQB" secondAttribute="leading" id="AM5-XJ-3kM"/>
+                            <constraint firstItem="1di-bC-d1A" firstAttribute="top" secondItem="1de-bl-kQB" secondAttribute="top" id="FgK-yE-Tmx"/>
+                            <constraint firstItem="1de-bl-kQB" firstAttribute="trailing" secondItem="1di-bC-d1A" secondAttribute="trailing" id="QtO-OP-9Sz"/>
+                            <constraint firstItem="1de-bl-kQB" firstAttribute="bottom" secondItem="1di-bC-d1A" secondAttribute="bottom" id="gRM-S8-jIv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1de-bl-kQB"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="1di-bC-d1A" id="GU2-9r-zle"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Br-cg-P7C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87" y="167"/>
+        </scene>
+    </scenes>
+</document>

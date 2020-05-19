@@ -90,7 +90,7 @@ class CategoriesTests: XCTestCase {
         let creationDate = dateFormatter.date(from: "2017-08-03T22:12:39.537Z")
         XCTAssertNotNil(firstCategory.creationDate)
         XCTAssertEqual(firstCategory.creationDate, creationDate)
-        XCTAssertEqual(firstCategory.categoryType, CategoryType.restaurants)
+        XCTAssertEqual(firstCategory.type, CategoryType.restaurants)
         XCTAssertEqual(firstCategory.moduleEID, UUID(uuidString: "aad16857-166d-43d4-8f16-d097902838cf"))
         XCTAssertEqual(firstCategory.eid, UUID(uuidString: "ac5bd194-11de-48f6-94db-fd16cfccb570"))
         XCTAssertEqual(firstCategory.title, "Restaurants")

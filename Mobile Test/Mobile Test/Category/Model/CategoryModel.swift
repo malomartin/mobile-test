@@ -25,7 +25,7 @@ struct Category: Resource, Describable {
     let moduleEID: UUID
         
     /// Type of the category.
-    let categoryType: CategoryType
+    let type: CategoryType
     
     /// Unused.
     let isActive: Bool
@@ -45,7 +45,7 @@ struct Category: Resource, Describable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = try values.decode(String.self, forKey: .id)
-        self.categoryType = try values.decode(CategoryType.self, forKey: .categoryType)
+        self.type = try values.decode(CategoryType.self, forKey: .categoryType)
         self.moduleEID = try values.decode(UUID.self, forKey: .moduleEID)
         self.eid = try values.decode(UUID.self, forKey: .endPointId)
         self.title = try values.decode(String.self, forKey: .title)

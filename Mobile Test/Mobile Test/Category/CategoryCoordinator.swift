@@ -25,13 +25,39 @@ final class CategoryCoordinator: Coordinator {
     func end() {
         childCoordinators.removeAll()
     }
+    
+    // MARK: - Navigation
+    
+    fileprivate func navigateToRestaurants() {
+        let restaurantsCoordinator = RestaurantCoordinator(navigationController: navigationController)
+        restaurantsCoordinator.delegate = self 
+        childCoordinators.append(restaurantsCoordinator)
+        restaurantsCoordinator.start()
+    }
+}
+
+// MARK: - CoordinatorNavigationDelegate
+
+extension CategoryCoordinator: CoordinatorNavigationDelegate {
+    func coordinatorDidEndFlow(_ coordinator: Coordinator) {
+        
+       // TODO remove child coord.
+    }
 }
 
 // MARK: - CategoryViewControllerDelegate
 
 extension CategoryCoordinator: CategoryViewControllerDelegate {
     
-    func viewController(_ viewController: CategoryViewController, didSelectCategory: Category) {
-        // TODO: Show category
+    func viewController(_ viewController: CategoryViewController, didSelectCategory category: Category) {
+        
+        switch category.type {
+        case .restaurants:
+            navigateToRestaurants()
+        case .vacationSpots:
+            // TODO
+            print("vacation spots pressed.")
+        }
     }
 }
+
